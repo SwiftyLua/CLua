@@ -1,2 +1,2 @@
 # CLua
-Swift wrapper for Lua
+Swift package for Lua
