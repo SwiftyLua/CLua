@@ -11,16 +11,9 @@ let package = Package(
 		.target(
             name: "CLua",
             dependencies: [],
-            #if os(macOS)
             cSettings: [
-                .define("LUA_USE_MACOSX")
+                .define("LUA_USE_MACOSX"),
             ]
-            #endif
-            #if os(Linux)
-            cSettings: [
-                .define("LUA_USE_LINUX")
-            ]
-            #endif
         )
 	]
 )
