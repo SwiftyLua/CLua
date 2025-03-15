@@ -17,10 +17,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        swift: ["5.3"]
+        swift: ["5.9"]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: swift-actions/setup-swift@v1.26.0
+      - uses: swift-actions/setup-swift@v2.2.0
         with:
           swift-version: ${{ matrix.swift }}
       - uses: actions/checkout@v4
