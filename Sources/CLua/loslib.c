@@ -137,9 +137,16 @@
 #endif				/* } */
 /* }================================================================== */
 
-
-
 static int os_execute (lua_State *L) {
+#if TARGET_OS_IOS || TARGET_OS_TV
+
+  lua_pushnil(L);
+  lua_pushliteral(L, "system() not available on iOS/tvOS");
+  lua_pushinteger(L, 1);
+  return 3;
+
+#else
+  
   const char *cmd = luaL_optstring(L, 1, NULL);
   int stat;
   errno = 0;
@@ -150,6 +157,8 @@ static int os_execute (lua_State *L) {
     lua_pushboolean(L, stat);  /* true if there is a shell */
     return 1;
   }
+  
+#endif
 }
 
 
